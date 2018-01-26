@@ -1,0 +1,750 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+   <head>
+      <meta charset="utf-8">
+      <!-- utf-8 works for most cases -->
+      <meta name="viewport" content="width=device-width">
+      <!-- Forcing initial-scale shouldn't be necessary -->
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- Use the latest (edge) version of IE rendering engine -->
+      <meta name="x-apple-disable-message-reformatting">
+      <!-- Disable auto-scale in iOS 10 Mail entirely -->
+      <title></title>
+      <!-- The title tag shows in email notifications, like Android 4.4. -->
+      <!-- Web Font / @font-face : BEGIN -->
+      <!-- NOTE: If web fonts are not required, lines 10 - 27 can be safely removed. -->
+      <!-- Desktop Outlook chokes on web font references and defaults to Times New Roman, so we force a safe fallback font. -->
+      <!--[if mso]>
+      <style>
+         * {
+         font-family: sans-serif !important;
+         }
+      </style>
+      <![endif]-->
+      <!-- All other clients get the webfont reference; some will render the font and others will silently fail to the fallbacks. More on that here: http://stylecampaign.com/blog/2015/02/webfont-support-in-email/ -->
+      <!--[if !mso]><!-->
+      <!-- insert web font reference, eg: <link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'> -->
+      <!--<![endif]-->
+      <!-- Web Font / @font-face : END -->
+      <!-- CSS Reset -->
+      <style>
+         /* What it does: Remove spaces around the email design added by some email clients. */
+         /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
+         html,
+         body {
+         margin: 0 auto !important;
+         padding: 0 !important;
+         height: 100% !important;
+         width: 100% !important;
+         }
+         /* What it does: Stops email clients resizing small text. */
+         * {
+         -ms-text-size-adjust: 100%;
+         -webkit-text-size-adjust: 100%;
+         }
+         /* What it does: Centers email on Android 4.4 */
+         div[style*="margin: 16px 0"] {
+         margin:0 !important;
+         }
+         /* What it does: Stops Outlook from adding extra spacing to tables. */
+         table,
+         td {
+         mso-table-lspace: 0pt !important;
+         mso-table-rspace: 0pt !important;
+         }
+         /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table alignment bug. Applies table-layout to the first 2 tables then removes for anything nested deeper. */
+         table {
+         border-spacing: 0 !important;
+         border-collapse: collapse !important;
+         table-layout: fixed !important;
+         margin: 0 auto !important;
+         }
+         table table table {
+         table-layout: auto;
+         }
+         /* What it does: Uses a better rendering method when resizing images in IE. */
+         img {
+         -ms-interpolation-mode:bicubic;
+         }
+         /* What it does: A work-around for iOS meddling in triggered links. */
+         *[x-apple-data-detectors] {
+         color: inherit !important;
+         text-decoration: none !important;
+         }
+         /* What it does: A work-around for Gmail meddling in triggered links. */
+         .x-gmail-data-detectors,
+         .x-gmail-data-detectors *,
+         .aBn {
+         border-bottom: 0 !important;
+         cursor: default !important;
+         }
+         /* What it does: Prevents Gmail from displaying an download button on large, non-linked images. */
+         .a6S {
+         display: none !important;
+         opacity: 0.01 !important;
+         }
+         /* If the above doesn't work, add a .g-img class to any image in question. */
+         img.g-img + div {
+         display:none !important;
+         }
+         /* What it does: Prevents underlining the button text in Windows 10 */
+         .button-link {
+         text-decoration: none !important;
+         }
+         /* What it does: Removes right gutter in Gmail iOS app: https://github.com/TedGoas/Cerberus/issues/89  */
+         /* Create one of these media queries for each additional viewport size you'd like to fix */
+         /* Thanks to Eric Lepetit @ericlepetitsf) for help troubleshooting */
+         @media only screen and (min-device-width: 375px) and (max-device-width: 413px) { /* iPhone 6 and 6+ */
+         .email-container {
+         min-width: 375px !important;
+         }
+         }
+      </style>
+      <!-- Progressive Enhancements -->
+      <style>
+         /* What it does: Hover styles for buttons */
+         .button-td,
+         .button-a {
+         transition: all 100ms ease-in;
+         }
+         .button-td:hover,
+         .button-a:hover {
+         background: #555555 !important;
+         border-color: #555555 !important;
+         }
+         /* Media Queries */
+         @media screen and (max-width: 480px) {
+         /* What it does: Forces elements to resize to the full width of their container. Useful for resizing images beyond their max-width. */
+         .fluid {
+         width: 100% !important;
+         max-width: 100% !important;
+         height: auto !important;
+         margin-left: auto !important;
+         margin-right: auto !important;
+         }
+         .intro-p{
+         padding-left: 0 !important;
+         padding-right: 0 !important;
+         }
+         /* What it does: Forces table cells into full-width rows. */
+         .stack-column,
+         .stack-column-center {
+         display: block !important;
+         width: 100% !important;
+         max-width: 100% !important;
+         direction: ltr !important;
+         }
+         /* And center justify these ones. */
+         .stack-column-center {
+         text-align: center !important;
+         }
+         /* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
+         .center-on-narrow {
+         text-align: center !important;
+         display: block !important;
+         margin-left: auto !important;
+         margin-right: auto !important;
+         float: none !important;
+         }
+         table.center-on-narrow {
+         display: inline-block !important;
+         }
+         /* What it does: Adjust typography on small screens to improve readability */
+         .email-container p {
+         font-size: 14px !important;
+         line-height: 22px !important;
+         padding: 0 10px;
+         }
+         .pad-left{
+         padding-left: 15px;
+         }
+         .no-mobile{ display: none !important;}
+         .mobile-resize{
+         width: 90% !important;
+         }
+         .cart-images{
+         width: 60px !important;
+         }
+         .mobile-text{
+         font-size: 13px !important;
+         }
+         }
+      </style>
+      <!-- What it does: Makes background images in 72ppi Outlook render at correct size. --> 
+      <!--[if gte mso 9]>
+      <xml>
+         <o:OfficeDocumentSettings>
+            <o:AllowPNG/>
+            <o:PixelsPerInch>96</o:PixelsPerInch>
+         </o:OfficeDocumentSettings>
+      </xml>
+      <![endif]-->
+   </head>
+   <body width="100%" bgcolor="#ffffff" style="margin: 0; mso-line-height-rule: exactly;">
+      <center style="width: 100%; background: #ffffff; text-align: left;">
+         <!-- Visually Hidden Preheader Text : BEGIN -->
+         <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family: sans-serif;">
+            Quelques produits sélectionnés pour vous.
+         </div>
+         <!-- Visually Hidden Preheader Text : END -->
+         <!--
+            Set the email width. Defined in two places:
+            1. max-width for all clients except Desktop Windows Outlook, allowing the email to squish on narrow but never go wider than 680px.
+            2. MSO tags for Desktop Windows Outlook enforce a 680px width.
+            Note: The Fluid and Responsive templates have a different width (600px). The hybrid grid is more "fragile", and I've found that 680px is a good width. Change with caution.
+            -->
+         <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 100%; width: 100%; background: #d3b560">
+            <tbody>
+               <tr>
+                  <td align="center">
+                     <!--[if mso]>
+                     <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="680" align="center">
+                        <tr>
+                           <td>
+                              <![endif]-->
+                              <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px; background: #d3b560;">
+                                 <tbody>
+                                    <tr>
+                                       <td>
+                                          <!--[if mso]>
+                                          <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="250" align="center">
+                                             <tr>
+                                                <td>
+                                                   <![endif]-->
+                                                   <table cellspacing="0" cellpadding="0" border="0" align="right" width="250" style="width:100%; max-width: 250px">
+                                                      <tbody>
+                                                         <tr>
+                                                            <td align="right" style="padding: 10px 0; text-align: center">
+                                                               <a href="https://www.facebook.com/Melvin.and.Hamilton"><img src="https://nosto-campaign-assets.s3.amazonaws.com/h69uebpx/ace/social-fb.png"></a>
+                                                            </td>
+                                                            <td align="right" style="padding: 10px 0; text-align: center">
+                                                               <a href="https://twitter.com/MelvinHamilton"><img src="https://nosto-campaign-assets.s3.amazonaws.com/h69uebpx/ace/social-twitter.png"></a>
+                                                            </td>
+                                                            <td align="right" style="padding: 10px 0; text-align: center">
+                                                               <a href="https://www.pinterest.fr/melvinhamilton/"><img src="https://nosto-campaign-assets.s3.amazonaws.com/h69uebpx/ace/social-pinterest.png"></a>
+                                                            </td>
+                                                            <td align="right" style="padding: 10px 0; text-align: center">
+                                                               <a href="https://www.instagram.com/melvinandhamilton/"><img src="https://nosto-merchant-assets.s3.amazonaws.com/h69uebpx/573ad53b581346e89006ac15/1508403273621"></a>
+                                                            </td>
+                                                            <td align="right" style="padding: 10px 0; text-align: center">
+                                                               <a href="http://melvin-hamilton.tumblr.com/"><img src="https://nosto-campaign-assets.s3.amazonaws.com/h69uebpx/ace/social-tumblr.png"></a>
+                                                            </td>
+                                                            <td align="right" style="padding: 10px 0; text-align: center">
+                                                               <a href="https://www.youtube.com/channel/UCcBVCZPkv_aUdXohDhC9SVQ"><img src="https://nosto-campaign-assets.s3.amazonaws.com/h69uebpx/ace/social-youtube.png"></a>
+                                                            </td>
+                                                         </tr>
+                                                      </tbody>
+                                                   </table>
+                                                   <!--[if mso]>
+                                                </td>
+                                             </tr>
+                                          </table>
+                                          <![endif]-->
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <!--[if mso]>
+                           </td>
+                        </tr>
+                     </table>
+                     <![endif]-->
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+         <div style="max-width: 680px; background: #FAFAFA; margin: auto;" class="email-container mobile-resize">
+            <!--[if mso]>
+            <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="680" align="center" bgcolor="#FAFAFA" style="background: #FAFAFA;">
+               <tr>
+                  <td>
+                     <![endif]-->
+                     <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px; background: #ffffff;" bgcolor="#ffffff">
+                        <tbody>
+                           <tr>
+                              <td style="padding: 20px 0; text-align: center">
+                                 <a href="http://www.melvin-hamilton.fr?nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true"><img src="https://nosto-campaign-assets.s3.amazonaws.com/h69uebpx/ace/logo.jpg" aria-hidden="true" width="300" alt="Logo" border="0" style="height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;"></a>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                     <!--[if mso]>
+                  </td>
+               </tr>
+            </table>
+            <![endif]-->
+            <!--[if mso]>
+            <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="680" align="center">
+               <tr>
+                  <td>
+                     <![endif]-->
+                     <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;" class="email-container mobile-resize">
+                        <!-- 1 Column Text + Button : BEGIN -->
+                        <tbody>
+                           <tr>
+                              <td bgcolor="#FAFAFA">
+                                 <!--[if mso]>
+                                 <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="680" align="center">
+                                    <tr>
+                                       <td>
+                                          <![endif]-->
+                                          <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                             <tbody>
+                                                <tr>
+                                                   <td style="padding: 0 40px 40px; font-family: sans-serif; font-size: 13px; line-height: 20px; color: #555555; text-align: left;" class="intro-p">
+                                                      <p style="margin: 0;"><br><br>
+                                                         <b>Bonjour </b><br>
+                                                         Vous avez ajouté des produits dans votre panier sur notre boutique, mais vous n'avez pas finalisé votre achat. Nous avons sauvegardé vos coups de cœur pour vous ; retrouvez-les dès maintenant en un clic !
+                                                         <br>
+                                                         Nous avons conservé votre liste d'achat. Retrouvez votre panier et finalisez votre commande avant que vos favoris soient en rupture de stock !
+                                                      </p>
+                                                   </td>
+                                                </tr>
+                                             </tbody>
+                                          </table>
+                                          <table cellspacing="0" cellpadding="0" border="0" align="center" role="presentation" width="680" style="width: 100%; max-width: 680px;">
+                                             <tbody>
+                                                <tr>
+                                                   <td align="center">
+                                                      <table cellspacing="0" cellpadding="0" border="0" align="center" role="presentation" width="600" style="width: 100%; max-width: 600px;" class="mobile-resize">
+                                                         <tbody>
+                                                            <tr style="border-bottom: 2px solid #D3B560;">
+                                                               <td style="padding: 10px 0;font-family: Georgia, Times, 'Times New Roman', serif; font-size: 20px; font-weight: bold; text-align: left; color:#666666;">VOTRE PANIER</td>
+                                                            </tr>
+                                                            <!-- START CART -->
+                                                            <tr>
+                                                               <td align="center">
+                                                                  <!--[if mso]>
+                                                                  <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="600" align="center">
+                                                                     <tr>
+                                                                        <td>
+                                                                           <![endif]-->
+                                                                           <table cellpadding="0" cellspacing="0" border="0" align="center" role="presentation" width="100%" style="max-width: 100%; padding: 15px;">
+                                                                              <tbody>
+                                                                                 <tr height="10">
+                                                                                    <td></td>
+                                                                                 </tr>
+                                                                                 <tr>
+                                                                                    <td valign="middle" width="15%"><a href="https://www.melvin-hamilton.fr/keira-1-tobacco-laces-snake-shell.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true"><img style="width: 100px;" width="100" src="https://d3b962r9eea4ib.cloudfront.net/h69uebpx/7/38172/d5ca9674efe99c301b5a1bb52a2fe62006d4e5fb0672614ebe69c1c4ef5d561ba/A" alt="=&quot;Product" name"="" class="cart-images"></a></td>
+                                                                                    <td valign="middle" width="35%" style="text-align: left; font-family: sans-serif; color: #000000;" class="mobile-text"><a href="https://www.melvin-hamilton.fr/keira-1-tobacco-laces-snake-shell.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true" style="color: #000000; text-decoration: none; font-size: 13px;">Keira 1|Tobacco Laces Snake Shell</a></td>
+                                                                                    <td width="10%" style="text-align: right; font-family: sans-serif; color: #000000; font-weight: bold;"><a href="https://www.melvin-hamilton.fr/keira-1-tobacco-laces-snake-shell.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true" style="color: #000000; text-decoration: none; font-size: 13px;">111,93 €</a></td>
+                                                                                 </tr>
+                                                                                 <tr height="10">
+                                                                                    <td></td>
+                                                                                 </tr>
+                                                                                 <tr height="10">
+                                                                                    <td></td>
+                                                                                 </tr>
+                                                                                 <tr style="border-top: 1px solid #979797">
+                                                                                    <td valign="middle" width="15%"><a href="https://www.melvin-hamilton.fr/matthew-7-tan-aspen-white-welt-natural-rivets.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true"><img style="width: 100px;" width="100" src="https://d3b962r9eea4ib.cloudfront.net/h69uebpx/7/41413/405f4df4b9cfa0f1a0a93844fbc7ff2d9dcce9ac50010c42d1348226306749c7a/A" alt="=&quot;Product" name"="" class="cart-images"></a></td>
+                                                                                    <td valign="middle" width="35%" style="text-align: left; font-family: sans-serif; color: #000000;" class="mobile-text"><a href="https://www.melvin-hamilton.fr/matthew-7-tan-aspen-white-welt-natural-rivets.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true" style="color: #000000; text-decoration: none; font-size: 13px;">Matthew 7|Tan Aspen White Welt Natural Rivets</a></td>
+                                                                                    <td width="10%" style="text-align: right; font-family: sans-serif; color: #000000; font-weight: bold;"><a href="https://www.melvin-hamilton.fr/matthew-7-tan-aspen-white-welt-natural-rivets.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true" style="color: #000000; text-decoration: none; font-size: 13px;">125,93 €</a></td>
+                                                                                 </tr>
+                                                                                 <tr height="10">
+                                                                                    <td></td>
+                                                                                 </tr>
+                                                                              </tbody>
+                                                                           </table>
+                                                                           <!--[if mso]>
+                                                                        </td>
+                                                                     </tr>
+                                                                  </table>
+                                                                  <![endif]-->
+                                                               </td>
+                                                            </tr>
+                                                            <tr style="border-top: 2px solid #979797;">
+                                                               <td style="padding-top: 10px;font-family: sans-serif; color: #666666; text-align: right; font-size: 15px;">Total: <b>237,86 €</b></td>
+                                                            </tr>
+                                                            <tr>
+                                                               <td style="padding: 0 40px 40px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
+                                                                  <!-- Button : BEGIN -->
+                                                                  <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center" style="margin: auto;">
+                                                                     <tbody>
+                                                                        <tr height="30">
+                                                                           <td></td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                           <td style="border-radius: 3px; background: #222222; text-align: center;" class="button-td">
+                                                                              <a href="http://www.melvin-hamilton.fr?nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true" style="background: #222222; border: 15px solid #222222; font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block;" class="button-a">
+                                                                              <span style="color:#ffffff;" class="button-link">&nbsp;&nbsp;&nbsp;&nbsp;VOIR MON PANIER&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                                                              </a>
+                                                                           </td>
+                                                                        </tr>
+                                                                     </tbody>
+                                                                  </table>
+                                                                  <!-- Button : END -->
+                                                               </td>
+                                                            </tr>
+                                                         </tbody>
+                                                      </table>
+                                                      <table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#ffffff" role="presentation" width="680" style="width: 100%; max-width: 680px;background:#ffffff;">
+                                                         <tbody>
+                                                            <tr>
+                                                               <td>
+                                                                  <table cellspacing="0" cellpadding="0" border="0" align="center" role="presentation" width="600" style="width: 100%; max-width: 600px;">
+                                                                     <tbody>
+                                                                        <tr height="30">
+                                                                           <td></td>
+                                                                        </tr>
+                                                                        <tr style="border-bottom: 2px solid #D3B560; background: #ffffff;" bgcolor="#ffffff">
+                                                                           <td style="padding: 10px 0;font-family: Georgia, Times, 'Times New Roman', serif; font-size: 20px; font-weight: bold; text-align: left; color:#666666;">Ceux qui achètent ce produit commandent également</td>
+                                                                        </tr>
+                                                                        <tr style="background: #ffffff;">
+                                                                           <td align="center" valign="top" style="font-size:0;">
+                                                                              <!--[if mso]>
+                                                                              <table border="0" cellspacing="0" cellpadding="0" align="center" width="660" style="background: #ffffff;">
+                                                                                 <tr>
+                                                                                    <![endif]-->
+                                                                                    <!--[if mso]>
+                                                                                    <td align="left" valign="top" width="220">
+                                                                                       <![endif]-->
+                                                                                       <div style="display:inline-block; Margin: 0 -2px; max-width:25%; min-width:150px; vertical-align:top; width:100%;" class="stack-column">
+                                                                                          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                                             <tbody>
+                                                                                                <tr>
+                                                                                                   <td style="padding: 10px 10px;">
+                                                                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+                                                                                                         <tbody>
+                                                                                                            <tr>
+                                                                                                               <td align="center">
+                                                                                                                  <a href="https://www.melvin-hamilton.fr/xsara-1-venice-navy-elastic-navy-rs.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true style=" text-decoration:none;color:#666666;"=""><img src="https://d3b962r9eea4ib.cloudfront.net/h69uebpx/7/42411/b4b81ee39199565d260cf5922f95a492b6fd0a48b2b8310cc903ecf8837b2959a/A" width="150" alt="" style="border: 0;width: 100%;max-width: 150px;" class="center-on-narrow"></a>
+                                                                                                               </td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                               <td style="font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;font-size:13px;mso-height-rule: exactly; line-height: 20px; color: #666666;text-align:center; font-size: 14px;">
+                                                                                                                  <a href="https://www.melvin-hamilton.fr/xsara-1-venice-navy-elastic-navy-rs.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true" style="text-decoration:none;color:#666666;font-size: 13px;">Xsara 1|Venice Navy Elastic...</a>
+                                                                                                               </td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                               <td style="padding-top:5px;font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;font-size:18px;mso-height-rule: exactly; line-height: 20px; color: #000000;text-align:center;font-weight:bold;">
+                                                                                                                  <a href="https://www.melvin-hamilton.fr/xsara-1-venice-navy-elastic-navy-rs.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true" style="text-decoration:none;color:#666666;font-size: 13px;">79,96 €</a>
+                                                                                                               </td>
+                                                                                                            </tr>
+                                                                                                         </tbody>
+                                                                                                      </table>
+                                                                                                   </td>
+                                                                                                </tr>
+                                                                                             </tbody>
+                                                                                          </table>
+                                                                                       </div>
+                                                                                       <!--[if mso]>
+                                                                                    </td>
+                                                                                    <![endif]-->
+                                                                                    <!--[if mso]>
+                                                                                    <td align="left" valign="top" width="220">
+                                                                                       <![endif]-->
+                                                                                       <div style="display:inline-block; Margin: 0 -2px; max-width:25%; min-width:150px; vertical-align:top; width:100%;" class="stack-column">
+                                                                                          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                                             <tbody>
+                                                                                                <tr>
+                                                                                                   <td style="padding: 10px 10px;">
+                                                                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+                                                                                                         <tbody>
+                                                                                                            <tr>
+                                                                                                               <td align="center">
+                                                                                                                  <a href="https://www.melvin-hamilton.fr/xander-2-venice-navy-elastic-navy-hrs-navy.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true style=" text-decoration:none;color:#666666;"=""><img src="https://d3b962r9eea4ib.cloudfront.net/h69uebpx/7/41559/c7bab24a285c5c585e95646d40c941ae0490b9d1047f403e9855ef51c630ef3da/A" width="150" alt="" style="border: 0;width: 100%;max-width: 150px;" class="center-on-narrow"></a>
+                                                                                                               </td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                               <td style="font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;font-size:13px;mso-height-rule: exactly; line-height: 20px; color: #666666;text-align:center; font-size: 14px;">
+                                                                                                                  <a href="https://www.melvin-hamilton.fr/xander-2-venice-navy-elastic-navy-hrs-navy.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true" style="text-decoration:none;color:#666666;font-size: 13px;">Xander 2|Venice Navy Elasti...</a>
+                                                                                                               </td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                               <td style="padding-top:5px;font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;font-size:18px;mso-height-rule: exactly; line-height: 20px; color: #000000;text-align:center;font-weight:bold;">
+                                                                                                                  <a href="https://www.melvin-hamilton.fr/xander-2-venice-navy-elastic-navy-hrs-navy.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true" style="text-decoration:none;color:#666666;font-size: 13px;">79,96 €</a>
+                                                                                                               </td>
+                                                                                                            </tr>
+                                                                                                         </tbody>
+                                                                                                      </table>
+                                                                                                   </td>
+                                                                                                </tr>
+                                                                                             </tbody>
+                                                                                          </table>
+                                                                                       </div>
+                                                                                       <!--[if mso]>
+                                                                                    </td>
+                                                                                    <![endif]-->
+                                                                                    <!--[if mso]>
+                                                                                    <td align="left" valign="top" width="220">
+                                                                                       <![endif]-->
+                                                                                       <div style="display:inline-block; Margin: 0 -2px; max-width:25%; min-width:150px; vertical-align:top; width:100%;" class="stack-column">
+                                                                                          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                                             <tbody>
+                                                                                                <tr>
+                                                                                                   <td style="padding: 10px 10px;">
+                                                                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+                                                                                                         <tbody>
+                                                                                                            <tr>
+                                                                                                               <td align="center">
+                                                                                                                  <a href="https://www.melvin-hamilton.fr/sally-45-crust-tan-rivets-elastic-dark-brown-new-ls.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true style=" text-decoration:none;color:#666666;"=""><img src="https://d3b962r9eea4ib.cloudfront.net/h69uebpx/7/29031/d5cedb44acc2a89164ea1b051102eb1e06f749493217ca1f177c04254d77dfc6a/A" width="150" alt="" style="border: 0;width: 100%;max-width: 150px;" class="center-on-narrow"></a>
+                                                                                                               </td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                               <td style="font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;font-size:13px;mso-height-rule: exactly; line-height: 20px; color: #666666;text-align:center; font-size: 14px;">
+                                                                                                                  <a href="https://www.melvin-hamilton.fr/sally-45-crust-tan-rivets-elastic-dark-brown-new-ls.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true" style="text-decoration:none;color:#666666;font-size: 13px;">Sally 45|Crust Tan Rivets E...</a>
+                                                                                                               </td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                               <td style="padding-top:5px;font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;font-size:18px;mso-height-rule: exactly; line-height: 20px; color: #000000;text-align:center;font-weight:bold;">
+                                                                                                                  <a href="https://www.melvin-hamilton.fr/sally-45-crust-tan-rivets-elastic-dark-brown-new-ls.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true" style="text-decoration:none;color:#666666;font-size: 13px;">99,95 €</a>
+                                                                                                               </td>
+                                                                                                            </tr>
+                                                                                                         </tbody>
+                                                                                                      </table>
+                                                                                                   </td>
+                                                                                                </tr>
+                                                                                             </tbody>
+                                                                                          </table>
+                                                                                       </div>
+                                                                                       <!--[if mso]>
+                                                                                    </td>
+                                                                                    <![endif]-->
+                                                                                    <!--[if mso]>
+                                                                                    <td align="left" valign="top" width="220">
+                                                                                       <![endif]-->
+                                                                                       <div style="display:inline-block; Margin: 0 -2px; max-width:25%; min-width:150px; vertical-align:top; width:100%;" class="stack-column">
+                                                                                          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                                                                                             <tbody>
+                                                                                                <tr>
+                                                                                                   <td style="padding: 10px 10px;">
+                                                                                                      <table cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+                                                                                                         <tbody>
+                                                                                                            <tr>
+                                                                                                               <td align="center">
+                                                                                                                  <a href="https://www.melvin-hamilton.fr/xabi-1-berlin-haina-dark-brown-strap-orange.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true style=" text-decoration:none;color:#666666;"=""><img src="https://d3b962r9eea4ib.cloudfront.net/h69uebpx/7/41554/b496fc1dcb267c17947e868693882da2a1b1befe474a1ce36121dbc05a1a05dda/A" width="150" alt="" style="border: 0;width: 100%;max-width: 150px;" class="center-on-narrow"></a>
+                                                                                                               </td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                               <td style="font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;font-size:13px;mso-height-rule: exactly; line-height: 20px; color: #666666;text-align:center; font-size: 14px;">
+                                                                                                                  <a href="https://www.melvin-hamilton.fr/xabi-1-berlin-haina-dark-brown-strap-orange.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true" style="text-decoration:none;color:#666666;font-size: 13px;">Xabi 1|Berlin Haina Dark Br...</a>
+                                                                                                               </td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                               <td style="padding-top:5px;font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;font-size:18px;mso-height-rule: exactly; line-height: 20px; color: #000000;text-align:center;font-weight:bold;">
+                                                                                                                  <a href="https://www.melvin-hamilton.fr/xabi-1-berlin-haina-dark-brown-strap-orange.html?___store=fr&amp;nosto=abandonedcart:594cdad560b2c7ac8b1f0dc4&amp;visit=5a6b004860b24c162a10158b&amp;refmail=not_used_in_preview&amp;nostodebug=true" style="text-decoration:none;color:#666666;font-size: 13px;">75,96 €</a>
+                                                                                                               </td>
+                                                                                                            </tr>
+                                                                                                         </tbody>
+                                                                                                      </table>
+                                                                                                   </td>
+                                                                                                </tr>
+                                                                                             </tbody>
+                                                                                          </table>
+                                                                                       </div>
+                                                                                       <!--[if mso]>
+                                                                                    </td>
+                                                                                    <![endif]-->
+                                                                                    <!--[if mso]>
+                                                                                 </tr>
+                                                                                 <![endif]-->
+                                                                                 </td>
+                                                                                 </tr>
+                                                                                 <tr height="30">
+                                                                                    <td></td>
+                                                                                 </tr>
+                                                                                 </tbody>
+                                                                              </table>
+                                                                           </td>
+                                                                        </tr>
+                                                                     </tbody>
+                                                                  </table>
+                                                               </td>
+                                                            </tr>
+                                                         </tbody>
+                                                      </table>
+                                                      <!--[if mso]>
+                                                   </td>
+                                                </tr>
+                                          </table>
+                                          <![endif]-->
+                                       </td>
+                                    </tr>
+                                    </tbody>
+                                 </table>
+                                 <!--[if mso]>
+                              </td>
+                           </tr>
+                     </table>
+                     <![endif]-->
+         </div>
+         <table class="no-mobile" role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 100%; width: 100%; background: #d3b560">
+         <tbody><tr>
+         <td align="center">
+         <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 100%; background: #d3b560;">
+         <tbody><tr>
+         <td bgcolor="#D3B560" style="padding: 50px; color:#ffffff; font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif; font-size: 18px;">
+         <b style="text-transform: uppercase;">Ne ratez pas les dernières news &amp; nos offres exclusives !</b><br>
+         <br>
+         <small><a style="text-decoration: none; color: #FFF;" href="http://eepurl.com/DGkEv">Abonnez-vous à la newsletter ! » </a></small>
+         <br>
+         <br>
+         <b style="text-transform: uppercase;">Une occasion à fêter ?</b><br>
+         <br>
+         <small><a style="text-decoration: none; color: #FFF;" href="https://www.melvin-hamilton.fr/cartes-cadeaux.html">Envoyez une carte cadeau personnalisée ! » </a></small>
+         </td>
+         <td width="50%" style="line-height: 0;">
+         <img src="https://nosto-merchant-assets.s3.amazonaws.com/h69uebpx/573ad53b581346e89006ac0d/1507663598237" width="100%">
+         </td>
+         </tr>
+         </tbody></table>
+         </td>
+         </tr>
+         </tbody></table>
+         <div style="max-width: 680px; margin: auto; background:#FAFAFA;" class="email-container">
+         <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px; background: #FAFAFA;" class="email-container">
+         <!-- 1 Column Text + Button : END -->
+         <!-- 3 Even Columns : BEGIN -->
+         <tbody><tr>
+         <td align="center" height="100%" valign="top" width="100%" style="padding: 10px 0;">
+         <!--[if mso]>
+         <table role="presentation" aria-hidden="true" border="0" cellspacing="0" cellpadding="0" align="center" width="660">
+         <tr>
+         <td align="center" valign="top" width="660">
+         <![endif]-->
+         <table role="presentation" aria-hidden="true" border="0" cellpadding="0" cellspacing="0" align="center" width="100%" style="max-width:660px;">
+         <tbody><tr>
+         <td align="center" valign="top" style="font-size:0;">
+         <!--[if mso]>
+         <table role="presentation" aria-hidden="true" border="0" cellspacing="0" cellpadding="0" align="center" width="660">
+         <tr>
+         <td align="left" valign="top" width="220">
+         <![endif]-->
+         <div style="display:inline-block; margin: 0 -2px; max-width:33.33%; min-width:220px; vertical-align:top; width:100%;" class="stack-column">
+         <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="100%">
+         <tbody><tr>
+         <td style="padding: 10px 10px;">
+         <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+         <tbody><tr>
+         <td align="center">
+         <img src="https://nosto-campaign-assets.s3.amazonaws.com/h69uebpx/ace/ups-one.png" aria-hidden="true" width="80" height="" border="0" alt="alt_text" class="center-on-narrow" style="width: 100%; max-width: 55px; height: auto; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
+         </td>
+         <td style="font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif; font-size: 13px; color: #666666;" align="left"><b>0805 85 81 09</b><br>Du Lundi au Vendredi<br>De 10h à 17h</td>
+         </tr>
+         </tbody></table>
+         </td>
+         </tr>
+         </tbody></table>
+         </div>
+         <!--[if mso]>
+         </td>
+         <td align="left" valign="top" width="220">
+         <![endif]-->
+         <div style="display:inline-block; margin: 0 -2px; max-width:33.33%; min-width:220px; vertical-align:top; width:100%;" class="stack-column">
+         <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="100%">
+         <tbody><tr>
+         <td style="padding: 10px 10px;">
+         <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+         <tbody><tr>
+         <td align="center">
+         <img src="https://nosto-campaign-assets.s3.amazonaws.com/h69uebpx/ace/ups-two.png" aria-hidden="true" width="80" height="" border="0" alt="alt_text" class="center-on-narrow" style="width: 100%; max-width: 55px; height: auto; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
+         </td>
+         <td style="font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif; font-size: 13px; color: #666666;" align="left"><b>info@melvin-hamilton.com</b></td>
+         </tr>
+         </tbody></table>
+         </td>
+         </tr>
+         </tbody></table>
+         </div>
+         <!--[if mso]>
+         </td>
+         <td align="left" valign="top" width="220">
+         <![endif]-->
+         <div style="display:inline-block; margin: 0 -2px; max-width:33.33%; min-width:220px; vertical-align:top; width:100%;" class="stack-column">
+         <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="100%">
+         <tbody><tr>
+         <td style="padding: 10px 10px;">
+         <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" width="100%" style="font-size: 14px;text-align: left;">
+         <tbody><tr>
+         <td align="center">
+         <a href="https://help.melvin-hamilton.com/hc/fr"><img src="https://nosto-campaign-assets.s3.amazonaws.com/h69uebpx/ace/ups-three.png" aria-hidden="true" width="80" height="" border="0" alt="alt_text" class="center-on-narrow" style="width: 100%; max-width: 55px; height: auto; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;"></a>
+         </td>
+         <td style="font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif; font-size: 13px; color: #666666;" align="left"><b><a href="https://help.melvin-hamilton.com/hc/fr">F.A.Q.</a></b></td>
+         </tr>
+         </tbody></table>
+         </td>
+         </tr>
+         </tbody></table>
+         </div>
+         <!--[if mso]>
+         </td>
+         </tr>
+         </table>
+         <![endif]-->
+         </td>
+         </tr>
+         </tbody></table>
+         <!--[if mso]>
+         </td>
+         </tr>
+         </table>
+         <![endif]-->
+         </td>
+         </tr>
+         </tbody></table>
+         </div>
+         <table class="no-mobile" role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 100%; width: 100%; background: #d3b560">
+         <tbody><tr height="35"><td></td></tr>
+         <tr>
+         <td align="center">
+         <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center" width="680" style="max-width: 680px; width: 100%; background: #d3b560;">
+         <tbody><tr>
+         <td style="padding: 5px; font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif; color: #ffffff; font-size: 13px; text-align: center; line-height: 1.1em;"><img height="30" src="https://nosto-campaign-assets.s3.amazonaws.com/h69uebpx/ace/bottom-icon-shipment.png"><br><br>Livraison assurée par DHL</td>
+         <td style="padding: 5px; font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif; color: #ffffff; font-size: 13px; text-align: center; line-height: 1.1em;"><img height="30" src="https://nosto-campaign-assets.s3.amazonaws.com/h69uebpx/ace/bottom-icon-return.png"><br><br>Retour gratuit pendant 14 jours</td>
+         <td style="padding: 5px; font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif; color: #ffffff; font-size: 13px; text-align: center; line-height: 1.1em;"><img height="30" src="https://nosto-campaign-assets.s3.amazonaws.com/h69uebpx/ace/bottom-icon-card.png"><br><br>Paiement sécurisé par carte de crédit</td>
+         <td style="padding: 5px; font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif; color: #ffffff; font-size: 13px; text-align: center; line-height: 1.1em;"><img width="70" src="https://nosto-campaign-assets.s3.amazonaws.com/h69uebpx/ace/bottom-icon-trusted.png"></td>
+         <td style="padding: 5px; font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif; color: #ffffff; font-size: 13px; text-align: center; line-height: 1.1em;"><img width="120" src="https://nosto-campaign-assets.s3.amazonaws.com/h69uebpx/ace/bottom-icon-payment.png"></td>
+         </tr>
+         </tbody></table>
+         </td>
+         </tr>
+         <tr height="35"><td></td></tr>
+         </tbody></table>
+         <div style="max-width: 680px; margin: auto; background:#FAFAFA;" class="email-container">
+         <table class="" role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 100%; width: 100%; background: #FAFAFA">
+         <!-- Clear Spacer : BEGIN -->
+         <tbody><tr>
+         <td height="50" style="font-size: 0; line-height: 0;">
+         &nbsp;
+         </td>
+         </tr>
+         <!-- Clear Spacer : END -->
+         <!-- 1 Column Text : BEGIN -->
+         <tr>
+         <td bgcolor="#fafafa">
+         <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0">
+         <tbody><tr>
+         <td style="font-family: Georgia, Times, 'Times New Roman', serif; color: #666666; font-weight: bold; font-size: 12px;text-align: left;" class="pad-left">
+         INFORMATIONS
+         </td>
+         </tr>
+         <tr height="30"><td></td></tr>
+         <tr>
+         <td style="font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif; font-size : 11px; line-height: 20px; color: #666666;">
+         <p style="margin: 0 0 10px 0;">Melvin &amp; Hamilton Digital SAS, 32 Rue d'Argout, 75002 Paris, Frankreich <br>
+         Enregistré au R.C.S. de Paris sous le numéro  518 466 644 Numéro de TVA: FR94518466644</p>
+         </td>
+         </tr>
+         </tbody></table>
+         </td>
+         </tr>
+         <!-- 1 Column Text : END -->
+         </tbody></table>
+         <!-- Email Body : END -->
+         <!-- Email Footer : BEGIN -->
+         <table role="presentation" aria-hidden="true" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;">
+         <tbody><tr>
+         <td style="padding: 40px 10px;width: 100%;font-size: 12px; font-family: sans-serif; line-height:18px; text-align: center; color: #888888;" class="x-gmail-data-detectors">
+         <a style="color:#888888; text-decoration:underline;" href="https://preview.nosto.com/not_available_in_preview"><unsubscribe style="color:#888888; text-decoration:underline;">Se déinscrire</unsubscribe></a>
+         </td>
+         </tr>
+         </tbody></table>
+         <!-- Email Footer : END -->
+         <!--[if mso]>
+         </td>
+         </tr>
+         </table>
+         <![endif]-->
+         </div>
+      </center>
+   </body>
+</html>
