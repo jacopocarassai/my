@@ -1,4 +1,37 @@
-<div class="nosto_element" id="frontpage-nosto-1"></div>
-
-
-<script type="text/javascript" src="//connect.nosto.com/include/magento-9bef1f04" async=""></script>
+<div class="products-grid grid">
+   <ul class="products-category-grid row">
+       #foreach($product in $products)
+      <li class="item col-xs-6 col-sm-4">
+         <div class="product-image-container">
+            <a href="$!product.url" title="$!product.name" class="product-image" itemprop="url"> 
+                <img class="lazyload top" data-original="$!product.thumb(9)" alt="$!product.name" src="$!product.thumb(9)">
+                #if($!product.alternateImageUrls)
+                <img style="position: absolute; top: 0px; padding: 0px; margin: 0px; display: block;" class="lazyload bottom" data-original="$!product.alternateImageUrls[0]" alt="$!product.name" src="$!product.alternateImageUrls[0]">
+             </a>
+             #if($!product.discounted)
+            <div class="sticker discount_sticker ">
+               <div class="content_wrapper">
+                  <i class="fa fa-tag fa-6 fa-rotate-90" aria-hidden="true"></i> 
+                  <p class="discount">-$!product.discount%</p>
+               </div>
+            </div>
+             #end
+         </div>
+         <div class="product-info">
+            <h2 class="product-name"><a href="$!product.url" title="$!product.name"><span itemprop="name">$!product.name</span></a></h2>
+            #if($!product.discounted)
+             <div class="price-box">
+               <p class="special-price"> <span class="price-label">Precio especial</span> <span class="price">$!product.price</span> <span class="old-price">$!product.listPrice</span> </p>
+            </div>
+             #else
+             <div class="price-box"> <span class="regular-price"> <span class="price">$!product.price</span> </span> </div>
+             #end
+            <div class="actions-hover"> <button type="button" title="Añadir al Carrito" class="button btn-cart" onclick="addToCartAjax('https://dev3.kavehome.com/es/es/checkout/cart/add/uenc/aHR0cHM6Ly9kZXYzLmthdmVob21lLmNvbS9lcy9lcy9zaWxsYXM,/product/5572/form_key/nN9EIkj4Efbmxr8Z/', 'cp-btn-cart5572')"><span><span>Añadir al Carrito</span></span></button> </div>
+         </div>
+      </li>
+       #end
+   </ul>
+   <script type="text/javascript" charset="utf-8">
+      _targetWindow.$("#$divId img.lazyload").lazyload();
+   </script>
+</div>
