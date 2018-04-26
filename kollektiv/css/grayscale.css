@@ -352,6 +352,7 @@ img::-moz-selection {
     font-size: 12px;
 }
 
-.emailform:focus .datenschutz{
-    opacity: 1;
-}
+#exampleModalLong h2, #exampleModalLong h3, #exampleModalLong h4, #exampleModalLong h5{
+    font-family: sans-serif;
+    font-weight: bold;
+} 
