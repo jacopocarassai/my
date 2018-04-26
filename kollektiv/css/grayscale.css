@@ -306,6 +306,7 @@ img::-moz-selection {
     max-width: 300px;
     letter-spacing: 1px;
     text-align: center;
+    border-radius: 0;
 }
 
 .emailbutton{
