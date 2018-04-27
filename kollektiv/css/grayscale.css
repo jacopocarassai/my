@@ -374,6 +374,16 @@ margin-right: auto
     display: none;
 }
 
+.koll-logo{
+    max-width: 220px;
+}
+
+@media (max-width: 768px) {
+    .koll-logo{
+        max-width: 160px !important;
+    }
+}
+
 
 .navbar .container{
     max-width: 1900px !important;
