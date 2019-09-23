@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- https://www.slaters.co.uk/skin/frontend/enterprise/slaters/images/emails/abandoned-basket/shopping-bag-2.jpg -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <style type="text/css">
+      #container {
+        display: block;
+        margin: 0 auto;
+        max-width: 1280px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <ul class="carousel">
+        <li>
+          <img src="img1.jpg" />
+        </li>
+        <li>
+          <img src="img2.jpg" />
+        </li>
+        <li>
+          <img src="img3.jpg" />
+        </li>
+      </ul>
+    </div>
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+        jQuery(".carousel").slick({
+          autoplay: true,
+          autoplaySpeed: 2000
+        });
+      });
+    </script>
+  </body>
+</html>
